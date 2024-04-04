@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.label {
+    font-size: 12px;
+    margin-bottom: 3px;
+}
+
+.input {
+    border-style: none;
+    border-radius: 5px;
+    border: 2px solid gray;
+    transition: border-color 0.5 ease-in-out;
+    width: 100%;
+    max-width: 200px;
+    padding: 10px 5px;
+}
+
+.input.error {
+    border-color: rgb(238, 126, 126);
+}
+
+.input:required:invalid {
+    border-color: rgb(238, 126, 126);
+}

@@ -15,10 +15,17 @@
     border-style: none;
     border-radius: 5px;
     border: 2px solid gray;
-    transition: border-color 0.5 ease-in-out;
+    transition: border-color 0.5s ease-in-out;
     width: 100%;
     max-width: 200px;
     padding: 10px 5px;
+}
+
+.input:read-only {
+    opacity: 0.5;
+    user-select: none;
+    filter: contrast(0.8);
+    pointer-events:none
 }
 
 .input:required:invalid {

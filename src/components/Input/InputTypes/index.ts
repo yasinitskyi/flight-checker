@@ -1,10 +1,15 @@
+import { HTMLInputTypeAttribute } from "react";
+
 export interface GenericInputProps {
-    title?: string;
-    placeholder?: string;
-    value?: string;
-    isError: boolean;
-    onChange: (value: string) => void;
-    name: string;
+    name: string,
+    value?: string,
+    title?: string,
+    placeholder?: string,
+    isError?: boolean,
+    pattern?: string,
+    type?: HTMLInputTypeAttribute,
+    onChange?: (value: string) => void,
+    validator?: (value: string) => string,
 }
 
-export type PhoneInputProps = Pick<GenericInputProps, 'value' | 'isError' | 'onChange'>
+export type InputProps = Pick<GenericInputProps, 'value' | 'isError' | 'onChange' | 'validator'>

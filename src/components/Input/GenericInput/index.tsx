@@ -10,6 +10,7 @@ function GenericInput({
     title,
     pattern,
     placeholder,
+    readonly = false,
     value: defaultValue = '',
     processor,
     onChange = () => {},
@@ -27,6 +28,7 @@ function GenericInput({
         {title && <label className={Styles.label} htmlFor={name}>{title}</label>}
         <input 
             name={name}
+            readOnly={readonly}
             type={type || 'text'}
             title={`請輸入您的${title}`}
             pattern={pattern}

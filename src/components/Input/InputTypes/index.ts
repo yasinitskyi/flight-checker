@@ -5,11 +5,11 @@ export interface GenericInputProps {
     value?: string,
     title?: string,
     placeholder?: string,
-    isError?: boolean,
     pattern?: string,
     type?: HTMLInputTypeAttribute,
     onChange?: (value: string) => void,
-    validator?: (value: string) => string,
+    processor?: (value: string) => string,
 }
 
-export type InputProps = Pick<GenericInputProps, 'value' | 'isError' | 'onChange' | 'validator'>
+export type InputProps = Pick<GenericInputProps, 'value' | 'onChange' | 'processor'>;
+export type AlphaNumericInputProps = Omit<GenericInputProps, 'pattern' | 'type'>;

@@ -1,32 +1,23 @@
 "use client"
 
-import {ChangeEvent, useState} from 'react';
+import {useState} from 'react';
 import Styles from './index.module.css';
 import { GenericInputProps } from '../inputTypes';
-import classNames from 'classnames';
 
 function GenericInput({
+    name,
+    type,
     title,
+    pattern,
     placeholder,
     value: defaultValue = '',
-    isError: defaultIsError = false,
+    processor,
     onChange = () => {},
-    name,
-    pattern,
-    type,
-    validator,
 }: GenericInputProps) {
     const [value, _setValue] = useState(defaultValue);
-    const [isError, setIsError] = useState(defaultIsError);
 
-    const validate = (event: ChangeEvent<HTMLInputElement>) => {
-        if (pattern) setIsError(event.target.validity.patternMismatch);
-        const newValue = validator?.(event.target.value) || event.target.value;
-
-        setValue(newValue);
-    }
-
-    const setValue = (newValue: string) => {
+    const setValue = (str: string) => {
+        const newValue = processor ? processor(str) : str;
         _setValue(newValue);
         onChange(newValue);
     }
@@ -35,16 +26,16 @@ function GenericInput({
     <div className={Styles.container}>
         {title && <label className={Styles.label} htmlFor={name}>{title}</label>}
         <input 
-            title={`請輸入您的${title}`}
-            placeholder={placeholder}
             name={name}
+            type={type || 'text'}
+            title={`請輸入您的${title}`}
+            pattern={pattern}
+            placeholder={placeholder}
+            value={value} 
             id={name}
             required 
-            value={value} 
-            type={type || 'text'}
-            onChange={(event) => validate(event) }
-            className={classNames(Styles.input, {[Styles.error]: isError})}
-            pattern={pattern}
+            onChange={(event) => setValue(event.target.value) }
+            className={Styles.input}
         />
     </div>
   )

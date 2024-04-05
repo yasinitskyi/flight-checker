@@ -1,11 +1,12 @@
 "use client"
 
-import { PhoneInput } from "@/components/Input";
+import { PhoneInput, NameInput } from "@/components/Input";
 
 export default function Search() {
   return (
     <>
-        <PhoneInput isError={false} onChange={() => {}} />
+        <PhoneInput />
+        <NameInput />
     </>
   );
 }

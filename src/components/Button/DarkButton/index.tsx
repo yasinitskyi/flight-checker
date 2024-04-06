@@ -1,6 +1,6 @@
 import React from 'react'
 import GenericButton from '../GenericButton'
-import { ThemedButtonProps } from '../buttonTypes'
+import { ThemedButtonProps } from '../types'
 
 export default function DarkButton({
 	value,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { AlphaNumericInputProps } from '../inputTypes';
+import { AlphaNumericInputProps } from '../types';
 import { GenericInput } from '../';
 
 export default function AlphanumericInput({

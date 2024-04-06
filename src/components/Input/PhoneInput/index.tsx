@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputProps } from '../inputTypes';
+import { InputProps } from '../types';
 import { GenericInput } from '../';
 
 export default function PhoneInput({

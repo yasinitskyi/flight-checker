@@ -3,16 +3,7 @@
 import {useState} from 'react';
 import classNames from 'classnames';
 import Styles from './index.module.css';
-
-interface TextareaProps {
-	name: string,
-	title?: string,
-	resizable?: boolean,
-	placeholder?: string,
-	value?: string,
-	onChange?: (value: string) => void,
-  processor?: (value: string) => string,
-}
+import { TextareaProps } from './types';
 
 export default function Textarea({
     name,

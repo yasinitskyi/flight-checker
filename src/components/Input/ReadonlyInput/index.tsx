@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReadonlyInputProps } from '../inputTypes';
+import { ReadonlyInputProps } from '../types';
 import { GenericInput } from '../';
 
 export default function ReadonlyInput({

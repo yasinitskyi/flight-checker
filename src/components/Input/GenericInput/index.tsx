@@ -2,7 +2,7 @@
 
 import {useState} from 'react';
 import Styles from './index.module.css';
-import { GenericInputProps } from '../inputTypes';
+import { GenericInputProps } from '../types';
 
 function GenericInput({
     name,

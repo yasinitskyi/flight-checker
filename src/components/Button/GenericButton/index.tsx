@@ -2,7 +2,7 @@
 
 import Styles from './index.module.css';
 import classNames from "classnames";
-import { GenericButtonProps } from "../buttonTypes";
+import { GenericButtonProps } from "../types";
 
 export default function GenericButton({
   value,

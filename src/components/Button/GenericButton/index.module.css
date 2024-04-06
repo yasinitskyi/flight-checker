@@ -1,0 +1,39 @@
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.button {
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	outline: none;
+	border-style: none;
+	border-radius: 5px;
+	width: 100%;
+	max-width: 200px;
+	padding: 10px 5px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	transition: all 0.5s ease-in-out;
+}
+
+.button:not(:last-child) {
+	margin-bottom: 5px;
+}
+
+.button.dark {
+	border: 2px solid #4b5c6b;
+	background-color: #4b5c6b;
+	color: #fff;
+}
+
+.button.light {
+	border: 2px solid gray;
+	background-color: #fff;
+	color: #4b5c6b;
+}

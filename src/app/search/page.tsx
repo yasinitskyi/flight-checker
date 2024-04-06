@@ -1,13 +1,20 @@
 "use client"
 
+import { FormEvent } from "react";
 import { PhoneInput, NameInput, AlphanumericInput, ReadonlyInput } from "@/components/Input";
 import { replaceNonNumeric, processECJK, replaceNonAlphanumeric } from "@/utilities/stringProcessors";
+import Textarea from "@/components/Textarea";
 import Typography from "@/components/Typography";
+import { DarkButton } from "@/components/Button";
 import Styles from './index.module.css';
 
 export default function Search() {
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+  };
+
   return (
-    <form className={Styles.form}>
+    <form onSubmit={handleSubmit} className={Styles.form}>
       <Typography tag="h1">送機行程</Typography>
       <Typography className={Styles.subTitle} tag="h2">送機計劃</Typography>
       <ReadonlyInput 
@@ -30,6 +37,11 @@ export default function Search() {
         placeholder="e.g. A123456789" 
         processor={replaceNonAlphanumeric} 
       />
+      <Textarea
+        title="乘車備註" 
+        name="additional notes" 
+      />
+      <DarkButton value="Send Request" type="submit">下一步</DarkButton>
     </form>
   );
 }

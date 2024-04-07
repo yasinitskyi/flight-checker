@@ -2,8 +2,9 @@
 
 import {useState} from 'react';
 import classNames from 'classnames';
-import Styles from './index.module.css';
+import RenderIf from '@/components/RenderIf';
 import { TextareaProps } from './types';
+import Styles from './index.module.css';
 
 export default function Textarea({
     name,
@@ -22,10 +23,9 @@ export default function Textarea({
       onChange(newValue);
     }
 
-
   return (
     <div className={Styles.container}>
-        {title && <label className={Styles.label} htmlFor={name}>{title}</label>}
+        <RenderIf value={!!title}><label className={Styles.label} htmlFor={name}>{title}</label></RenderIf>
         <textarea
 					className={classNames(Styles.textarea, {[Styles.resizable]: resizable})}
 					placeholder={placeholder} 

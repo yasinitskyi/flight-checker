@@ -52,7 +52,7 @@ export default function Search() {
   }
 
   useEffect(() => {
-    // if (isConfirmed) setTimeout(() => setShowDetails(false), 2000);
+    if (isConfirmed) setTimeout(() => setShowDetails(false), 2000);
   }, [isConfirmed]);
 
   return (

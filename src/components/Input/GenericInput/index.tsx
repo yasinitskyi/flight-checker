@@ -1,6 +1,7 @@
 "use client"
 
 import {useState} from 'react';
+import RenderIf from '@/components/RenderIf';
 import Styles from './index.module.css';
 import { GenericInputProps } from '../types';
 
@@ -25,7 +26,7 @@ function GenericInput({
 
     return (
     <div className={Styles.container}>
-        {title && <label className={Styles.label} htmlFor={name}>{title}</label>}
+        <RenderIf value={!!title}><label className={Styles.label} htmlFor={name}>{title}</label></RenderIf>
         <input 
             name={name}
             readOnly={readonly}

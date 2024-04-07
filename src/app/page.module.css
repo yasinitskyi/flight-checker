@@ -8,6 +8,16 @@
     padding: 15px;
 }
 
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    margin: auto;
+}
+
 @media (max-width: 576px) and (orientation: portrait) {
     .container {
         height: 100dvh;

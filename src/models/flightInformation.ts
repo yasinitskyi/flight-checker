@@ -1,51 +1,69 @@
 interface FlightInformationProps {
-	FlightDate: string;
-	FlightNumber: string;
-	AirlineID: string;
-	DepartureAirportID: string;
-	ArrivalAirportID: string;
-	ScheduleDepartureTime: string;
-	ActualDepartureTime: string;
-	EstimatedDepartureTime: string;
-	DepartureRemark: string;
-	Terminal: string;
-	Apron: string;
-	IsCargo: boolean;
-	CheckCounter: string;
-	UpdateTime: string;
+	FlightDate: string,
+	FlightNumber: string,
+	AirlineID: string,
+	DepartureAirportID: string,
+	ArrivalAirportID: string,
+	ScheduleDepartureTime: string,
+	ActualDepartureTime: string,
+	EstimatedDepartureTime: string,
+	DepartureRemark: string,
+	Terminal: string,
+	Apron: string,
+	IsCargo: boolean,
+	CheckCounter: string,
+	UpdateTime: string,
+	AirRouteType: number,
+	DepartureRemarkEn: string,
+	Gate: string,
+	CodeShare: string,
+	AcType: string,
+	BaggageClaim: string,
 }
 
 class FlightInformation {
-	flightDate: Date;
-	flightNumber: string;
-	airlineId: string;
-	departureAirportId: string;
-	arrivalAirportId: string;
-	scheduleDepartureTime: Date;
-	actualDepartureTime: Date;
-	estimatedDepartureTime: Date;
-	departureRemark: string;
-	terminal: string;
-	apron: string;
-	isCargo: boolean;
-	checkCounter: string;
-	updateTime: Date;
+	flightDate: string = '';
+	flightNumber: string = '';
+	airlineId: string = '';
+	departureAirportId: string = '';
+	arrivalAirportId: string = '';
+	scheduleDepartureTime: string = '';
+	actualDepartureTime: string = '';
+	estimatedDepartureTime: string = '';
+	departureRemark: string = '';
+	terminal: string = '';
+	apron: string = '';
+	isCargo: boolean | null = null;
+	checkCounter: string = '';
+	updateTime: string = '';
+	airRouteType: number | null = null;
+	departureRemarkEn: string = '';
+	gate: string = '';
+	codeShare: string = '';
+	acType: string = '';
+	baggageClaim: string = '';
 
 	constructor(data: FlightInformationProps) {
-		this.flightDate = new Date(data.FlightDate);
+		this.flightDate = data.FlightDate ?? this.flightDate;
 		this.flightNumber = data.FlightNumber;
 		this.airlineId = data.AirlineID;
 		this.departureAirportId = data.DepartureAirportID;
 		this.arrivalAirportId = data.ArrivalAirportID;
-		this.scheduleDepartureTime = new Date(data.ScheduleDepartureTime);
-		this.actualDepartureTime = new Date(data.ActualDepartureTime);
-		this.estimatedDepartureTime = new Date(data.EstimatedDepartureTime);
+		this.scheduleDepartureTime = data.ScheduleDepartureTime ?? this.scheduleDepartureTime;
+		this.actualDepartureTime = data.ActualDepartureTime ?? this.actualDepartureTime;
+		this.estimatedDepartureTime = data.EstimatedDepartureTime ?? this.estimatedDepartureTime;
 		this.departureRemark = data.DepartureRemark;
 		this.terminal = data.Terminal;
 		this.apron = data.Apron;
-		this.isCargo = data.IsCargo;
+		this.isCargo = data.IsCargo ?? this.isCargo;
 		this.checkCounter = data.CheckCounter;
-		this.updateTime = new Date(data.UpdateTime);
+		this.updateTime = data.UpdateTime ?? this.updateTime;
+		this.airRouteType = data.AirRouteType ?? this.airRouteType;
+		this.departureRemarkEn = data.DepartureRemarkEn;
+		this.gate = data.Gate;
+		this.codeShare = data.CodeShare;
+		this.acType = data.AcType;
+		this.baggageClaim = data.BaggageClaim;
 	}
 
 	get detailedFlightNumber() {

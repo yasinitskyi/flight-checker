@@ -3,7 +3,7 @@ import { FlightInformation, FlightInformationProps } from "@/models/flightInform
 class API {
 	async getFlights(): Promise<FlightInformation[] | undefined> {
 		try {
-			const flights = await fetch('https://tdx.tansportdata.tw/api/basic/v2/Air/FIDS/Airport/Departure/TPE?$orderby=ScheduleDepartureTime&$format=JSON');
+			const flights = await fetch('https://tdx.transportdata.tw/api/basic/v2/Air/FIDS/Airport/Departure/TPE?$orderby=ScheduleDepartureTime&$format=JSON');
     	const parsedFlights = await flights.json();
 
 			return parsedFlights.map((flight: FlightInformationProps) => new FlightInformation(flight));
